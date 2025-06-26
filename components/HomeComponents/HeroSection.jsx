@@ -78,7 +78,7 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="lg:w-1/2 mb-12 lg:mb-0 flex justify-end"
         >
-          <div className="relative w-[300px] h-[420px] md:w-[500px] md:h-[600px] overflow-hidden rounded-[160px_160px_10px_10px] bg-white shadow-2xl translate-y-10">
+          <div className="relative w-[300px] h-[420px] md:w-[500px] md:h-[600px] overflow-hidden rounded-[300px_300px_20px_20px] bg-transparent shadow-blue-200 shadow-md translate-y-10">
             <Image
               src={heroImg}
               alt="Meditating woman"
