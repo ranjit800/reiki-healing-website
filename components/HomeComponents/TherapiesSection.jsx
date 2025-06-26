@@ -8,13 +8,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 import cardImg1 from "@/public/images/TherapiesImg/img1.png";
 import cardImg2 from "@/public/images/TherapiesImg/img2.png";
 import cardImg3 from "@/public/images/TherapiesImg/img3.png";
 import cardImg4 from "@/public/images/TherapiesImg/img4.png";
 
-// Use imported images in therapies array
 const therapies = [
   {
     title: "Reiki Healing",
@@ -37,18 +37,13 @@ const therapies = [
     img: cardImg4,
   },
   {
-    title: "Aromatherapy",
-    desc: "Using essential oils to enhance emotional and physical health.",
+    title: "Massage Therapy",
+    desc: "Relieve tension and promote wellness with expert massage.",
     img: cardImg4,
   },
   {
-    title: "Aromatherapy",
-    desc: "Using essential oils to enhance emotional and physical health.",
-    img: cardImg4,
-  },
-  {
-    title: "Aromatherapy",
-    desc: "Using essential oils to enhance emotional and physical health.",
+    title: "Energy Cleansing",
+    desc: "Clear stagnant energy and restore positive flow.",
     img: cardImg4,
   },
 ];
@@ -57,9 +52,23 @@ const TherapiesSection = () => {
   return (
     <section className="py-16 md:py-0 mb-6 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-12">List of Therapies</h2>
+        {/* 👇 Animated Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">
+            List of Therapies
+          </h2>
+          <p className="text-[#4a4a4a] underline cursor-pointer">
+            Holistic & Natural Approaches to Healing
+          </p>
+        </motion.div>
 
-        {/* Swiper and pagination wrapper */}
+        {/* Swiper Section */}
         <div className="relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -81,7 +90,13 @@ const TherapiesSection = () => {
           >
             {therapies.map((therapy, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                >
                   <div className="w-full h-56 relative">
                     <Image src={therapy.img} alt={therapy.title} fill className="object-cover" />
                   </div>
@@ -100,11 +115,12 @@ const TherapiesSection = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
-          {/* Custom pagination outside the card area */}
+
+          {/* Swiper Pagination */}
           <div className="custom-swiper-pagination flex justify-center mt-8" />
         </div>
       </div>

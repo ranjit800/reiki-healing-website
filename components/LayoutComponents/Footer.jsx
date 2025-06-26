@@ -9,14 +9,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">PeacefulPath</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center md:text-left">PeacefulPath</h2>
           <p className="text-sm text-gray-300">
             Empowering your healing journey with Reiki, sound therapy, and transformational coaching. Align your mind, body, and soul.
           </p>
         </div>
 
         {/* Quick Links */}
-        <div>
+        <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li><a href="#home" className="hover:text-white">Home</a></li>
@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         {/* Services */}
-        <div>
+        <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">Our Services</h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>Reiki Healing</li>
@@ -40,13 +40,13 @@ export default function Footer() {
         </div>
 
         {/* Contact */}
-        <div>
+        <div className="text-center md:text-left"> 
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-          <ul className="space-y-3 text-sm text-gray-300">
-            <li className="flex items-center gap-2">
+          <ul className="space-y-3 text-sm text-gray-300 ">
+            <li className="flex items-center gap-2 md:justify-start justify-center">
               <FaPhoneAlt className="text-white" /> +91 80018 01496
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-2 md:justify-start justify-center">
               <FaEnvelope className="text-white" /> info@peacefulpath.com
             </li>
           </ul>
