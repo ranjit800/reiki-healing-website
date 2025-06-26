@@ -40,7 +40,7 @@
 // export default DesktopNavbar;
 
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
 import Link from "next/link";
@@ -65,9 +65,42 @@ const navItemVariants = {
 };
 
 const DesktopNavbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    // Handler to call on window scroll
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    // Add event listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Call handler right away so state gets updated with initial scroll position
+    handleScroll();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.header
-      className="w-full px-8 py-4 shadow-md bg-white flex justify-between items-center"
+      className={`w-full px-8 py-4 flex justify-between items-center transition-colors duration-300 ${
+        scrolled
+          ? "bg-transparent backdrop-blur-sm shadow-lg border-b border-white/30"
+          : "bg-white shadow-md"
+      }`}
+      style={
+        scrolled
+          ? {
+              backdropFilter: "blur(5px)",
+              WebkitBackdropFilter: "blur(5px)",
+              background: "rgba(255,255,255,0.7)",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.10)",
+              borderBottom: "1px solid rgba(255,255,255,0.15)",
+            }
+          : {}
+      }
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
