@@ -4,12 +4,21 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import heroImg from "../../public/images/reikiImg/healer5.webp"; // your image path
+import background from "../../public/images/booking-bg/bg4.svg";
+import elem from "../../public/images/elem2.png"
 
 const HealingJourneySection = () => {
   return (
-    <section className="bg-[#f3d8cf] py-20 px-4 md:px-10">
+    <section
+      className="bg-[#f3d8cf] py-20 px-4 md:px-10 relative"
+      style={{
+        backgroundImage: `url(${background.src})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
-        
         {/* Left Image with animation */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -46,6 +55,15 @@ const HealingJourneySection = () => {
             MORE ABOUT ME
           </button>
         </motion.div>
+      </div>
+      {/* Decorative elem image in bottom right corner */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src={elem}
+          alt=""
+          className="w-32 h-32 md:w-48 md:h-48 object-contain"
+          priority={false}
+        />
       </div>
     </section>
   );

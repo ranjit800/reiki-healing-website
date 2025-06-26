@@ -5,8 +5,9 @@ import Image from "next/image";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import img1 from "../../public/images/reikiImage/reiki1.webp";
 import img2 from "../../public/images/reikiImage/reiki2.webp";
-import flowerIcon from "../../public/images/reikiImg/flower.png";
+import flowerIcon from "../../public/images/reikiImg/flower4.png";
 import Button from "../CommonComponent/Button";
+import elem from "../../public/images/elem3.png";
 
 // Animation for fade/slide
 const fadeInUp = {
@@ -33,8 +34,18 @@ const HealingCoursesSection = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
-    <section className="bg-[#fdf7f5] py-20 md:px-8">
-      <div className="max-w-7xl container mx-auto flex flex-col gap-20 items-center">
+    // <section className="bg-[#fdf7f5] py-20 md:px-8">
+    <section className="bg-[#fdf7f5] py-20 md:px-8 relative">
+      {/* Decorative elem3.png in center bottom */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-10 pointer-events-none">
+        <Image
+          src={elem}
+          alt=""
+          className="w-24 h-24 md:w-40 md:h-40 object-contain"
+          priority={false}
+        />
+      </div>
+      <div className="max-w-7xl container mx-auto flex flex-col gap-10 items-center">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           {/* Text */}
@@ -94,9 +105,9 @@ const HealingCoursesSection = () => {
           <Image
             src={flowerIcon}
             alt="Flower icon"
-            width={80}
-            height={80}
-            className="opacity-70"
+            width={90}
+            height={90}
+            className="opacity-100"
           />
         </motion.div>
 

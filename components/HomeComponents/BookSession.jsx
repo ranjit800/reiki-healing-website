@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import sessionImg from "../../public/images/reikiImg/hero2.webp";
+import backgroung from "../../public/images/booking-bg/backgound.svg"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -30,18 +31,23 @@ const BookSession = () => {
             src={sessionImg}
             alt="Reiki session"
             fill
-            className="object-cover"
+            className="object-cover rounded-2xl"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority
           />
         </motion.div>
 
         {/* Right Form */}
-        <motion.div
+         {/* Right Form */}
+         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="w-full lg:w-1/2 bg-[#5e3566] text-white p-4 sm:p-6 md:p-10 flex items-center"
+          className="w-full lg:w-1/2 bg-[#5e3566]/80 text-white p-4 sm:p-6 md:p-10 flex items-center backdrop-blur-md bg-clip-padding border border-white/20 shadow-xl"
+          style={{
+            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+            borderRadius: "1rem",
+          }}
         >
           <div className="w-full">
             {/* Header */}

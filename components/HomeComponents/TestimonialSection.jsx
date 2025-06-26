@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Profile1 from "@/public/images/profile.avif";
+import background from "../../public/images/booking-bg/background2.svg";
 
 // Testimonials data
 const testimonials = [
@@ -54,7 +55,16 @@ const cardVariants = {
 
 const TestimonialSection = () => {
   return (
-    <section className="bg-white py-16 px-4 lg:px-8">
+    // <section className="bg-white py-16 px-4 lg:px-8">
+    <section
+      className="py-16 px-4 lg:px-8"
+      style={{
+        backgroundImage: `url(${background.src})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

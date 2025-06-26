@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import heroImg from "@/public/images/HeroImg.jpg";
+import heroImg from "@/public/images/heroBackground.svg";
 import Button from "../CommonComponent/Button";
 
 const HeroSection = () => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
     <section
       className="h-auto md:[height:calc(100vh-5px)]"
       style={{
-        backgroundImage: "linear-gradient(to bottom, #FAEFE8 65%, white 35%)",
+        backgroundImage: "linear-gradient(to bottom, #FAEFE8 70%, white 30%)",
       }}
     >
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between container mx-auto">
@@ -61,7 +61,7 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="lg:w-1/2 mb-12 lg:mb-0 flex justify-end"
         >
-          <div className="relative w-[300px] h-[420px] md:w-[400px] md:h-[550px] overflow-hidden rounded-[160px_160px_10px_10px] bg-white shadow-2xl translate-y-10">
+          <div className="relative w-[300px] h-[420px] md:w-[500px] md:h-[600px] overflow-hidden rounded-[160px_160px_10px_10px] bg-white shadow-2xl translate-y-10">
             <Image
               src={heroImg}
               alt="Meditating woman"
