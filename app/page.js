@@ -1,6 +1,7 @@
 
 "use client"
 
+import BookSession from "@/components/HomeComponents/BookSession";
 import HealingCoursesSection from "@/components/HomeComponents/HealingCoursesSection";
 import HealingJourneySection from "@/components/HomeComponents/HealingJourneySection";
 import HeroSection from "@/components/HomeComponents/HeroSection";
@@ -15,6 +16,7 @@ const page = () => {
    <TestimonialSection/>
    <HealingCoursesSection />
    <HealingJourneySection/>
+   <BookSession/>
    </>
   );
 };

@@ -8,7 +8,7 @@ const HealingJourneySection = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
         
         {/* Left Image with rounded corner */}
-        <div className="rounded-[20px_20px_20px_160px] overflow-hidden max-w-md md:max-w-xl w-full">
+        <div className="rounded-[20px_160px_20px_20px] overflow-hidden max-w-md md:max-w-xl w-full">
           <Image
             src={heroImg}
             alt="Reiki Master"
