@@ -1,168 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
-import { FaPhoneAlt } from "react-icons/fa";
-import { BsChatDots } from "react-icons/bs";
-import { HiMenu, HiX } from "react-icons/hi";
-import Link from "next/link";
-import Button from "../CommonComponent/Button";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 export default function Navbar() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Services", href: "#" },
-    { label: "Testimonials", href: "#" },
-    { label: "Contact", href: "#" },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`w-full py-4 z-30 sticky top-0 left-0 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/70 backdrop-blur-sm shadow-md"
-          : "bg-transparent shadow-md"
-      }`}
-      style={
-        scrolled
-          ? {
-              background:
-                "linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 100%)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.10)",
-              borderBottom: "1px solid rgba(255,255,255,0.15)",
-              transition: "all 0.3s cubic-bezier(0.4,0,0.2,1)",
-            }
-          : {}
-      }
-    >
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-xl font-bold flex items-center gap-2">
-          <span className="text-2xl text-black">✦</span>
-          <span className="text-black">LOGO</span>
-        </div>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex gap-6 font-medium text-black">
-          {navLinks.map((link) => (
-            <Link key={link.label} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button
-            text="Book an Appointment"
-            bgColor="bg-green-100"
-            textColor="text-black"
-            hoverBgColor="hover:bg-green-200"
-          />
-
-          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
-            <FaPhoneAlt size={16} />
-          </div>
-
-          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
-            <BsChatDots size={18} />
-          </div>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200"
-          aria-label="Open menu"
-          onClick={() => setDrawerOpen(true)}
-        >
-          <HiMenu size={24} />
-        </button>
+    <>
+      {/* Desktop Navbar: visible on md and up */}
+      <div className="hidden md:block sticky top-0 left-0 z-50">
+        <DesktopNavbar />
       </div>
-
-      {/* Mobile Drawer */}
-      {drawerOpen && (
-        <div className="fixed inset-0 z-40">
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-black bg-opacity-40"
-            onClick={() => setDrawerOpen(false)}
-          ></div>
-          {/* Drawer */}
-          <div className="absolute top-0 right-0 w-4/5 max-w-xs h-full bg-white shadow-lg flex flex-col p-6 animate-slide-in">
-            <div className="flex items-center justify-between mb-8">
-              <div className="text-xl font-bold flex items-center gap-2">
-                <span className="text-2xl text-black">✦</span>
-                <span className="text-black">LOGO</span>
-              </div>
-              <button
-                className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100"
-                aria-label="Close menu"
-                onClick={() => setDrawerOpen(false)}
-              >
-                <HiX size={28} />
-              </button>
-            </div>
-            <nav className="flex flex-col gap-6 font-medium text-black">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setDrawerOpen(false)}
-                  className="text-lg"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-8 flex flex-col gap-4">
-              <Button
-                text="Book an Appointment"
-                bgColor="bg-green-100"
-                textColor="text-black"
-                hoverBgColor="hover:bg-green-200"
-                className="w-full"
-              />
-              <div className="flex gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
-                  <FaPhoneAlt size={16} />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
-                  <BsChatDots size={18} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <style jsx global>{`
-            @keyframes slide-in {
-              from {
-                transform: translateX(100%);
-              }
-              to {
-                transform: translateX(0);
-              }
-            }
-            .animate-slide-in {
-              animation: slide-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-          `}</style>
-        </div>
-      )}
-    </header>
+      {/* Mobile Navbar: visible below md */}
+      <div className="block md:hidden sticky top-0 left-0 z-50">
+        <MobileNavbar />
+      </div>
+    </>
   );
 }

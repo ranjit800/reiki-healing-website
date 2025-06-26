@@ -38,7 +38,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="lg:w-1/2 text-center lg:text-left"
+          className="lg:w-1/2 text-center lg:text-left md:mt-0 mt-7"
         >
           <h1 className="text-4xl lg:text-5xl font-semibold text-[#3b1f2b] leading-snug">
             Heal, grow and <br /> thrive with Reiki and <br /> Life Coaching

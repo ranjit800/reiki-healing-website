@@ -1,9 +1,29 @@
 "use client";
 
 import React from "react";
-import { FaFacebookF, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Footer() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <footer
       className="relative text-white pt-12 pb-6 px-4"
@@ -19,65 +39,47 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 bg-white/10 rounded-2xl p-6 backdrop-blur-md border border-white/10 shadow-xl">
         {/* Brand */}
-        <div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <h2 className="text-2xl font-bold mb-4 text-center md:text-left text-[#5e3566] hover:text-[#e7b5d6] transition-colors duration-200 cursor-pointer">
             PeacefulPath
           </h2>
           <p className="text-sm text-[#f8e1f4] hover:text-white transition-colors duration-200 cursor-pointer">
             Empowering your healing journey with Reiki, sound therapy, and transformational coaching. Align your mind, body, and soul.
           </p>
-        </div>
+        </motion.div>
 
         {/* Quick Links */}
-        <div className="text-center md:text-left">
+        <motion.div variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4 text-[#e7b5d6] hover:text-white transition-colors duration-200 cursor-pointer">
             Quick Links
           </h3>
           <ul className="space-y-2 text-sm text-[#f8e1f4]">
-            <li>
-              <a href="#home" className="hover:text-white transition-colors duration-200 cursor-pointer">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-white transition-colors duration-200 cursor-pointer">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="hover:text-white transition-colors duration-200 cursor-pointer">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#testimonials" className="hover:text-white transition-colors duration-200 cursor-pointer">
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-white transition-colors duration-200 cursor-pointer">
-                Contact
-              </a>
-            </li>
+            {["Home", "About", "Services", "Testimonials", "Contact"].map((item, index) => (
+              <li key={index}>
+                <a href={`#${item.toLowerCase()}`} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Services */}
-        <div className="text-center md:text-left">
+        <motion.div variants={fadeUp} custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4 text-[#e7b5d6] hover:text-white transition-colors duration-200 cursor-pointer">
             Our Services
           </h3>
           <ul className="space-y-2 text-sm text-[#f8e1f4]">
-            <li className="hover:text-white transition-colors duration-200 cursor-pointer">Reiki Healing</li>
-            <li className="hover:text-white transition-colors duration-200 cursor-pointer">Crystal Therapy</li>
-            <li className="hover:text-white transition-colors duration-200 cursor-pointer">Sound Healing</li>
-            <li className="hover:text-white transition-colors duration-200 cursor-pointer">Life Coaching</li>
-            <li className="hover:text-white transition-colors duration-200 cursor-pointer">Meditation Retreats</li>
+            {["Reiki Healing", "Crystal Therapy", "Sound Healing", "Life Coaching", "Meditation Retreats"].map((service, index) => (
+              <li key={index} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                {service}
+              </li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Contact */}
-        <div className="text-center md:text-left">
+        <motion.div variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4 text-[#e7b5d6] hover:text-white transition-colors duration-200 cursor-pointer">
             Contact Us
           </h3>
@@ -91,23 +93,32 @@ export default function Footer() {
           </ul>
 
           <div className="flex items-center gap-4 mt-6 justify-center md:justify-start">
-            <a href="#" className="hover:text-[#ffb6c1] text-xl transition-colors duration-200 cursor-pointer">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="hover:text-[#ffb6c1] text-xl transition-colors duration-200 cursor-pointer">
-              <FaInstagram />
-            </a>
-            <a href="#" className="hover:text-[#ffb6c1] text-xl transition-colors duration-200 cursor-pointer">
-              <FaYoutube />
-            </a>
+            {[FaFacebookF, FaInstagram, FaYoutube].map((Icon, idx) => (
+              <motion.a
+                key={idx}
+                href="#"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="hover:text-[#ffb6c1] text-xl transition-colors duration-200 cursor-pointer"
+              >
+                <Icon />
+              </motion.a>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="mt-10 border-t border-[#e7b5d6]/40 pt-4 text-center text-sm text-[#f8e1f4] hover:text-white transition-colors duration-200 cursor-pointer">
+      <motion.div
+        variants={fadeUp}
+        custom={4}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="mt-10 border-t border-[#e7b5d6]/40 pt-4 text-center text-sm text-[#f8e1f4] hover:text-white transition-colors duration-200 cursor-pointer"
+      >
         © {new Date().getFullYear()} PeacefulPath Wellness. All rights reserved.
-      </div>
+      </motion.div>
     </footer>
   );
 }
