@@ -119,6 +119,8 @@ export default function Footer() {
       >
         © {new Date().getFullYear()} PeacefulPath Wellness. All rights reserved.
       </motion.div>
+
+      
     </footer>
   );
 }

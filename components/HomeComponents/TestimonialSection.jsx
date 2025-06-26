@@ -71,7 +71,7 @@ const TestimonialSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-gray-800 mb-2"
+          className="text-4xl font-bold text-[#3b1f2b] mb-2 "
         >
           Real People. Real Results
         </motion.h2>
@@ -81,7 +81,7 @@ const TestimonialSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-[#4a4a4a] underline mb-12 cursor-pointer"
+          className="text-[#4a4a4a]  mb-12 cursor-pointer"
         >
           More than 250 five-star reviews on Google
         </motion.p>

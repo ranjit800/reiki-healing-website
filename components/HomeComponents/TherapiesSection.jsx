@@ -60,10 +60,10 @@ const TherapiesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-2xl md:text-4xl font-semibold text-[#3b1f2b] mb-2 ">
             List of Therapies
           </h2>
-          <p className="text-[#4a4a4a] underline cursor-pointer">
+          <p className="text-[#4a4a4a]  cursor-pointer ">
             Holistic & Natural Approaches to Healing
           </p>
         </motion.div>
