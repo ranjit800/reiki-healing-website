@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Profile1 from "@/public/images/profile.avif";
+import Profile1 from "@/public/images/profile2.png";
 import background from "../../public/images/booking-bg/background2.svg";
 
 // Testimonials data

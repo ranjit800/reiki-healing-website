@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -8,6 +8,7 @@ import Button from "../CommonComponent/Button";
 
 export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
     { label: "Home", href: "#" },
@@ -17,8 +18,39 @@ export default function Navbar() {
     { label: "Contact", href: "#" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-md w-full py-4 z-30 sticky top-0 left-0">
+    <header
+      className={`w-full py-4 z-30 sticky top-0 left-0 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/70 backdrop-blur-sm shadow-md"
+          : "bg-transparent shadow-md"
+      }`}
+      style={
+        scrolled
+          ? {
+              background:
+                "linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 100%)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.10)",
+              borderBottom: "1px solid rgba(255,255,255,0.15)",
+              transition: "all 0.3s cubic-bezier(0.4,0,0.2,1)",
+            }
+          : {}
+      }
+    >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold flex items-center gap-2">

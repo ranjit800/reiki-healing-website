@@ -4,16 +4,33 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import heroImg from "@/public/images/heroBackground.svg";
+import bg3 from "@/public/images/bg3.svg";
+
 import Button from "../CommonComponent/Button";
 
 const HeroSection = () => {
   return (
     <section
-      className="h-auto md:[height:calc(100vh-5px)]"
+      className="h-auto md:[height:calc(100vh-5px)] relative"
       style={{
-        backgroundImage: "linear-gradient(to bottom, #FAEFE8 70%, white 30%)",
+        background: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 70%, #fff 70%, #fff 100%)`,
       }}
     >
+      {/* Background image for top 70% */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "70%",
+          zIndex: 0,
+          backgroundImage: `url(${bg3.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between container mx-auto">
         {/* Left Content */}
         <motion.div
