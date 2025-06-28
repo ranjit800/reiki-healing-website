@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 // import heroImg from "@/public/images/heroBackground.svg";
-import heroImg from "@/public/images/newBg.png";
+import heroImg from "@/public/images/newBg2.webp";
 
 
 import Button from "../CommonComponent/Button";

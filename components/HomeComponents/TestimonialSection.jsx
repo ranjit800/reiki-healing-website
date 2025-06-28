@@ -80,7 +80,7 @@ const cardVariants = {
 const TestimonialSection = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const translateY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const ySpring = useSpring(translateY, { damping: 20, stiffness: 100 });
 
   return (
@@ -180,7 +180,7 @@ const TestimonialSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-12"
+          className="mt-32"
         >
           <Button
             text="View More Reviews"

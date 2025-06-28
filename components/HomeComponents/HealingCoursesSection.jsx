@@ -8,6 +8,7 @@ import img2 from "../../public/images/reikiImage/reiki2.webp";
 import flowerIcon from "../../public/images/reikiImg/flower4.png";
 import Button from "../CommonComponent/Button";
 import elem from "../../public/images/elem3.png";
+import Bg from "../../public/images/sectionBg.png";
 
 // Animation for fade/slide
 const fadeInUp = {
@@ -34,13 +35,18 @@ const HealingCoursesSection = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
-    // <section className="bg-[#fdf7f5] py-20 md:px-8">
-    <section className="bg-[#fdf7f5] py-20 md:px-8 relative">
+    <section className="relative py-20 md:px-8">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image src={Bg} alt="Background" fill className="object-cover" priority={false} />
+      </div>
+      
       {/* Decorative elem3.png in center bottom */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-10 pointer-events-none">
         <Image src={elem} alt="" className="w-24 h-24 md:w-40 md:h-40 object-contain" priority={false} />
       </div>
-      <div className="max-w-7xl container mx-auto flex flex-col gap-10 items-center">
+      
+      <div className="max-w-7xl container mx-auto flex flex-col md:gap-0 gap-5 items-center relative z-10">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           {/* Text */}
@@ -59,7 +65,7 @@ const HealingCoursesSection = () => {
 
           {/* Image */}
           <motion.div
-            className="relative w-[300px] h-[420px] md:w-[500px] md:h-[80vh] overflow-hidden rounded-[20px_20px_20px_160px] bg-white shadow-2xl"
+            className="relative md:translate-y-14 w-[300px] h-[420px] md:w-[500px] md:h-[70vh] overflow-hidden rounded-[20px_20px_20px_160px] bg-white shadow-2xl "
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -78,7 +84,7 @@ const HealingCoursesSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           {/* Image */}
           <motion.div
-            className="relative w-[300px] h-[420px] md:w-[500px] md:h-[80vh] overflow-hidden rounded-[20px_160px_20px_20px] bg-white shadow-2xl"
+            className="relative md:-translate-y-14 w-[300px] h-[420px] md:w-[500px] md:h-[70vh] overflow-hidden rounded-[20px_160px_20px_20px] bg-white shadow-2xl"
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}

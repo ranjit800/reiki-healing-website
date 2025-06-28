@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import heroImg from "../../public/images/reikiImg/healer5.webp"; // your image path
-import background from "../../public/images/booking-bg/bg4.svg";
+// import background from "../../public/images/booking-bg/bg4.svg";
+import background2 from "../../public/images/sectionBg3.png"
 import elem from "../../public/images/elem2.png";
 import Button from "../CommonComponent/Button";
 
@@ -13,7 +14,7 @@ const HealingJourneySection = () => {
     <section
       className="bg-[#f3d8cf] py-20 px-4 md:px-10 relative"
       style={{
-        backgroundImage: `url(${background.src})`,
+        backgroundImage: `url(${background2.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
