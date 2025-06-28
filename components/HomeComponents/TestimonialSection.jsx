@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Profile1 from "@/public/images/profile2.png";
 import Button from "@/components/CommonComponent/Button";
-// import video from "../../public/videos/testimonial.mp4"
 
 const testimonials = [
   {
@@ -48,16 +47,17 @@ const testimonials = [
     image: Profile1,
   },
   {
+    isVideo: true,
+    videoSrc: "/videos/testimonial.mp4",
+  },
+  {
     name: "Harry",
     session: "Reiki Healing Workshop",
     text: "The Reiki healing workshop was an amazing experience that exceeded all my expectations. The instructor was incredibly knowledgeable and created a supportive learning environment. I learned not only the techniques of Reiki but also gained a deeper understanding of energy healing principles. The hands-on practice sessions were invaluable, and I felt confident in my abilities by the end of the workshop. The experience was both educational and transformative, and I've been able to use these skills to help myself and others.",
     stars: 5,
     image: Profile1,
   },
-  {
-    isVideo: true,
-    videoSrc: "/videos/testimonial.mp4",
-  },
+  
   {
     name: "Amanda",
     session: "Reiki Healing Course",
@@ -78,6 +78,11 @@ const cardVariants = {
 };
 
 const TestimonialSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const ySpring = useSpring(translateY, { damping: 20, stiffness: 100 });
+
   return (
     <section className="py-16 px-4 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto text-center">
@@ -101,29 +106,36 @@ const TestimonialSection = () => {
           More than 250 five-star reviews on Google
         </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
-          {testimonials.map((item, idx) =>
-            item.isVideo ? (
-              <motion.div
-                key={`video-${idx}`}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="relative overflow-hidden rounded-[20px] bg-black aspect-video h-full w-full"
-              >
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover rounded-[20px]"
-                  src={item.videoSrc}
+        {/* Grid with scroll tracking */}
+        <div ref={containerRef} className="grid md:grid-cols-3 gap-8 items-stretch">
+          {testimonials.map((item, idx) => {
+            const isMiddleColumn = idx % 3 === 1;
+
+            if (item.isVideo) {
+              return (
+                <motion.div
+                  key={`video-${idx}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="relative overflow-hidden rounded-[20px] bg-black aspect-video h-full w-full"
                 >
-                  Your browser does not support the video tag.
-                </video>
-              </motion.div>
-            ) : (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover rounded-[20px]"
+                    src={item.videoSrc}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
+              );
+            }
+
+            return (
               <motion.div
                 key={idx}
                 custom={idx}
@@ -132,22 +144,18 @@ const TestimonialSection = () => {
                 viewport={{ once: true }}
                 variants={cardVariants}
                 className="bg-[#f9f6f4] rounded-[20px] flex flex-col items-center px-6 py-8 text-center min-h-[400px] justify-between"
+                style={isMiddleColumn ? { y: ySpring } : {}}
               >
                 <div className="flex flex-col items-center">
-                  {/* Stars */}
-                  <div className="text-[#703B64] text-xl mb-4">
+                  <div className="text-[#783766] text-xl mb-4">
                     {Array.from({ length: item.stars }).map((_, i) => (
                       <span key={i}>★</span>
                     ))}
                   </div>
 
-                  {/* Text */}
-                  <p className="text-[#333] text-sm leading-relaxed mb-6">
-                    {item.text}
-                  </p>
+                  <p className="text-[#333] text-sm leading-relaxed mb-6">{item.text}</p>
                 </div>
 
-                {/* Image + Name - Now at bottom center */}
                 {item.image && (
                   <div className="flex flex-col items-center">
                     <Image
@@ -163,8 +171,8 @@ const TestimonialSection = () => {
                   </div>
                 )}
               </motion.div>
-            )
-          )}
+            );
+          })}
         </div>
 
         <motion.div
@@ -174,14 +182,12 @@ const TestimonialSection = () => {
           viewport={{ once: true }}
           className="mt-12"
         >
-            <Button
-              text=" View More Reviews"
-              textColor="text-white"
-              hoverBgColor="hover:bg-opacity-80"
-              className="font-gotu"
-            />
-           
-         
+          <Button
+            text="View More Reviews"
+            textColor="text-white"
+            hoverBgColor="hover:bg-opacity-80"
+            className="font-gotu"
+          />
         </motion.div>
       </div>
     </section>
