@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Button = ({
   text,
-  bgColor = "bg-black",
+  bgColor = "bg-primary", // Use  global CSS class
   textColor = "text-white",
   hoverBgColor = "hover:bg-opacity-80",
   onClick,
@@ -17,13 +17,7 @@ const Button = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={onClick}
-      className={classNames(
-        "px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition duration-300",
-        bgColor,
-        textColor,
-        hoverBgColor,
-        className
-      )}
+      className={classNames("px-6 py-3 rounded-full text-sm  tracking-wide transition duration-300 ", bgColor, textColor, hoverBgColor, className)}
     >
       {text}
     </motion.button>

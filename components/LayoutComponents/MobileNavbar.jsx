@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import Button from "../CommonComponent/Button";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +58,14 @@ const MobileNavbar = () => {
             Contact
           </Link>
 
-          <button className="mt-4 bg-green-100 text-black font-semibold px-4 py-2 rounded-full hover:bg-green-200 transition">
-            Book an Appointment
-          </button>
+          <Button
+            text="Book an Appointment"
+            bgColor="bg-[#551a43]"
+            textColor="text-white"
+            hoverBgColor="hover:bg-opacity-80"
+            className="mt-4 px-4 py-2"
+            onClick={() => setIsOpen(false)}
+          />
         </nav>
 
         <div className="px-6 pt-10 flex gap-4">
@@ -76,12 +82,7 @@ const MobileNavbar = () => {
       </aside>
 
       {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+      {isOpen && <div className="fixed inset-0 bg-black bg-opacity-40 z-40" onClick={() => setIsOpen(false)} />}
     </>
   );
 };

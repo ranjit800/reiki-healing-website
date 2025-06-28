@@ -48,7 +48,7 @@ const HealingJourneySection = () => {
             Whether through life coaching, Reiki training, or healing sessions, Celeste guides you with compassion, helping you embrace your true potential.
           </p>
 
-          <Button text="Book an Appointment" bgColor="bg-[#3d5a5a]" textColor="text-white" hoverBgColor="hover:bg-[#2f4747]" />
+          <Button text="Book an Appointment" bgColor="bg-[#551a43]" textColor="text-white" hoverBgColor="hover:bg-opacity-80" />
         </motion.div>
       </div>
       {/* Decorative elem image in bottom right corner */}

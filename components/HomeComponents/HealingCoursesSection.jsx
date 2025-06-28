@@ -38,46 +38,23 @@ const HealingCoursesSection = () => {
     <section className="bg-[#fdf7f5] py-20 md:px-8 relative">
       {/* Decorative elem3.png in center bottom */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-10 pointer-events-none">
-        <Image
-          src={elem}
-          alt=""
-          className="w-24 h-24 md:w-40 md:h-40 object-contain"
-          priority={false}
-        />
+        <Image src={elem} alt="" className="w-24 h-24 md:w-40 md:h-40 object-contain" priority={false} />
       </div>
       <div className="max-w-7xl container mx-auto flex flex-col gap-10 items-center">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           {/* Text */}
-          <motion.div
-            className="flex-1 px-6 md:px-0"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <p className="uppercase tracking-wide text-xs text-[#9c8a8a] mb-2">
-              Reiki Level 1 Course
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#551a43] mb-6 leading-tight">
-              Holistic Healing Through Reiki Energy
-            </h2>
+          <motion.div className="flex-1 px-6 md:px-0" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+            <p className="uppercase tracking-wide text-xs text-[#9c8a8a] mb-2">Reiki Level 1 Course</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#551a43] mb-6 leading-tight">Holistic Healing Through Reiki Energy</h2>
             <p className="text-gray-700 mb-4">
-              Discover the transformative power of Reiki in our Level 1 Course.
-              Learn to harmonize mind, body, and soul while promoting emotional
-              balance, physical health, and mental clarity.
+              Discover the transformative power of Reiki in our Level 1 Course. Learn to harmonize mind, body, and soul while promoting emotional balance, physical health, and
+              mental clarity.
             </p>
             <p className="text-gray-700 mb-6">
-              This course will teach you to clear energy blockages and restore
-              life-force energy, empowering you to bring healing and harmony
-              into your daily life.
+              This course will teach you to clear energy blockages and restore life-force energy, empowering you to bring healing and harmony into your daily life.
             </p>
-            <Button
-              text="I WANT TO LEARN REIKI!"
-              bgColor="bg-[#551a43]"
-              textColor="text-white"
-              hoverBgColor="bg-[#3e0f32]"
-            />
+            <Button text="I WANT TO LEARN REIKI!" bgColor="bg-[#551a43]" textColor="text-white" hoverBgColor="bg-[#3e0f32]" />
           </motion.div>
 
           {/* Image */}
@@ -88,27 +65,13 @@ const HealingCoursesSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Image
-              src={img1}
-              alt="Reiki healing"
-              className="w-full h-full object-cover"
-            />
+            <Image src={img1} alt="Reiki healing" className="w-full h-full object-cover" />
           </motion.div>
         </div>
 
         {/* 🌸 Rotating Flower */}
-        <motion.div
-          ref={flowerScrollRef}
-          style={{ rotate }}
-          className="flex justify-center"
-        >
-          <Image
-            src={flowerIcon}
-            alt="Flower icon"
-            width={90}
-            height={90}
-            className="opacity-100"
-          />
+        <motion.div ref={flowerScrollRef} style={{ rotate }} className="flex justify-center">
+          <Image src={flowerIcon} alt="Flower icon" width={90} height={90} className="opacity-100" />
         </motion.div>
 
         {/* Bottom Section */}
@@ -121,44 +84,20 @@ const HealingCoursesSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Image
-              src={img2}
-              alt="Meditation"
-              className="w-full h-full object-cover"
-            />
+            <Image src={img2} alt="Meditation" className="w-full h-full object-cover" />
           </motion.div>
 
           {/* Text */}
-          <motion.div
-            className="flex-1 px-6 md:px-0"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            custom={1}
-          >
-            <p className="uppercase tracking-wide text-xs text-[#9c8a8a] mb-2">
-              Life Coaching Course
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#2c3e50] mb-6 leading-tight">
-              Create a Life That Inspires You
-            </h2>
+          <motion.div className="flex-1 px-6 md:px-0" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} custom={1}>
+            <p className="uppercase tracking-wide text-xs text-[#9c8a8a] mb-2">Life Coaching Course</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#2c3e50] mb-6 leading-tight">Create a Life That Inspires You</h2>
             <p className="text-gray-700 mb-4">
-              Step into your fullest potential with our Transformational Life
-              Coaching course. Heal, grow, and make meaningful changes to align
-              with the highest vision of yourself.
+              Step into your fullest potential with our Transformational Life Coaching course. Heal, grow, and make meaningful changes to align with the highest vision of yourself.
             </p>
             <p className="text-gray-700 mb-6">
-              Let go of overwhelm, break through limiting beliefs, and overcome
-              the barriers holding you back from achieving freedom, success,
-              abundance, and love.
+              Let go of overwhelm, break through limiting beliefs, and overcome the barriers holding you back from achieving freedom, success, abundance, and love.
             </p>
-            <Button
-              text="I'M READY FOR GROWTH"
-              bgColor="bg-[#2c3e50]"
-              textColor="text-white"
-              hoverBgColor="bg-[#1a252f]"
-            />
+            <Button text="I'M READY FOR GROWTH" bgColor="bg-[#551a43]" textColor="text-white" hoverBgColor="hover:bg-opacity-80" />
           </motion.div>
         </div>
       </div>

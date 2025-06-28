@@ -1,6 +1,69 @@
 @import "tailwindcss";
 
-/* Container for each section */
+/* Direct Color Utility Classes */
+/* #551a43; */
+.bg-primary {
+  background-color: #783766;
+}
+
+.text-primary{
+  color: #783766;
+}
+
+.bg-primary-light {
+  background-color: #7a2b5f;
+}
+
+.bg-primary-dark {
+  background-color: #3d122f;
+}
+
+.bg-primary-bg {
+  background-color: #f8f4f7;
+}
+
+.text-primary {
+  color: #703B64;
+}
+
+.text-primary-light {
+  color: #7a2b5f;
+}
+
+.text-primary-dark {
+  color: #3d122f;
+}
+
+.text-primary-text {
+  color: #ffffff;
+}
+
+.border-primary {
+  border-color: #703B64;
+}
+
+.border-primary-light {
+  border-color: #7a2b5f;
+}
+
+.border-primary-dark {
+  border-color: #3d122f;
+}
+
+/* Optional: Section container limit */
 .container {
   max-width: 1200px;
+}
+
+
+@font-face {
+  font-family: 'Gotu';
+  src: url('/fonts/Gotu-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Gotu', sans-serif;
 }

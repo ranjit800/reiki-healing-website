@@ -39,12 +39,12 @@
 
 // export default DesktopNavbar;
 
-
 import React, { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Button from "../CommonComponent/Button";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -86,9 +86,7 @@ const DesktopNavbar = () => {
   return (
     <motion.header
       className={`w-full px-8 py-4 flex justify-between items-center transition-colors duration-300 ${
-        scrolled
-          ? "bg-transparent backdrop-blur-sm shadow-lg border-b border-white/30"
-          : "bg-white shadow-md"
+        scrolled ? "bg-transparent backdrop-blur-sm shadow-lg border-b border-white/30" : "bg-white shadow-md"
       }`}
       style={
         scrolled
@@ -106,23 +104,13 @@ const DesktopNavbar = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Logo */}
-      <motion.div
-        className="text-xl font-bold flex items-center gap-2"
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
+      <motion.div className="text-xl font-bold flex items-center gap-2" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
         <span className="text-2xl text-black">✦</span>
         <span className="text-black">LOGO</span>
       </motion.div>
 
       {/* Navigation Links */}
-      <motion.nav
-        className="hidden md:flex gap-6 font-medium text-black"
-        variants={navVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <motion.nav className="hidden md:flex gap-6 font-medium text-black" variants={navVariants} initial="hidden" animate="visible">
         {navLinks.map((link, idx) => (
           <motion.div key={link.label} variants={navItemVariants}>
             <Link href={link.href}>{link.label}</Link>
@@ -131,19 +119,9 @@ const DesktopNavbar = () => {
       </motion.nav>
 
       {/* Actions */}
-      <motion.div
-        className="flex items-center gap-3"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <motion.button
-          className="bg-green-100 text-black font-semibold px-5 py-2 rounded-full hover:bg-green-200 transition"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          Book an Appointment
-        </motion.button>
+      <motion.div className="flex items-center gap-3" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+      <Button text="Book an Appointment"   textColor="text-white" hoverBgColor="hover:bg-opacity-80" />
+
 
         <motion.div
           className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 cursor-pointer"

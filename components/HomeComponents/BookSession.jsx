@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import sessionImg from "../../public/images/reikiImg/hero2.webp";
-import backgroung from "../../public/images/booking-bg/backgound.svg"
+import backgroung from "../../public/images/booking-bg/backgound.svg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -27,19 +27,12 @@ const BookSession = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/2 h-56 sm:h-72 md:h-96 lg:h-auto relative min-h-[220px]"
         >
-          <Image
-            src={sessionImg}
-            alt="Reiki session"
-            fill
-            className="object-cover rounded-2xl"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+          <Image src={sessionImg} alt="Reiki session" fill className="object-cover rounded-2xl" sizes="(max-width: 1024px) 100vw, 50vw" priority />
         </motion.div>
 
         {/* Right Form */}
-         {/* Right Form */}
-         <motion.div
+        {/* Right Form */}
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -51,14 +44,7 @@ const BookSession = () => {
         >
           <div className="w-full">
             {/* Header */}
-            <motion.div
-              variants={fadeUp}
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-6 sm:mb-8"
-            >
+            <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-6 sm:mb-8">
               <div className="text-2xl sm:text-3xl mb-2">📿</div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">Book your Session</h2>
               <p className="text-xs sm:text-sm mt-2">Your life is waiting. Fast, long-lasting relief is nearby.</p>
@@ -158,7 +144,7 @@ const BookSession = () => {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full py-2 mt-3 sm:mt-4 rounded-full bg-white text-[#5e3566] font-semibold hover:bg-[#f0f0f0] transition text-sm sm:text-base"
+                className="w-full py-2 mt-3 sm:mt-4 rounded-full bg-[#551a43] text-white font-semibold hover:bg-opacity-80 transition text-sm sm:text-base"
                 variants={fadeUp}
                 custom={8}
                 initial="hidden"
