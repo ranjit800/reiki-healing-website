@@ -17,8 +17,9 @@ const HeroSection = () => {
         background: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 70%, #fff 70%, #fff 100%)`,
       }}
     >
-      {/* Background video for top 70% */}
+      {/* Background video for top 70% - hidden on mobile */}
       <div
+        className="hidden md:block"
         style={{
           position: "absolute",
           top: 0,

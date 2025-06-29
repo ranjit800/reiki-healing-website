@@ -42,7 +42,7 @@ const therapies = [
   {
     title: "Massage Therapy",
     desc: "Relieve tension and promote wellness with expert massage.",
-    longDesc: "Experience therapeutic massage techniques designed to relieve muscle tension, improve circulation, and promote overall wellness. Our skilled therapists...",
+    longDesc: "Experience therapeutic massage techniques designed to relieve muscle tension, improve circulation, and promote overall wellness...",
     img: cardImg4,
   },
   {
@@ -55,7 +55,7 @@ const therapies = [
 
 const TherapiesSection = () => {
   return (
-    <section className="py-16 md:py-0 mb-6 bg-white">
+    <section className="pt-16 md:py-0 md:mb-6 bg-white">
       <div className="container mx-auto px-4">
         {/* 👇 Animated Header */}
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-12">

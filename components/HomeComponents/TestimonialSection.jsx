@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Profile1 from "@/public/images/profile2.png";
@@ -79,7 +79,23 @@ const cardVariants = {
 
 const TestimonialSection = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768); // Tailwind's md breakpoint
+    };
+
+    handleResize(); // Run once on load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const translateY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const ySpring = useSpring(translateY, { damping: 20, stiffness: 100 });
 
@@ -106,7 +122,6 @@ const TestimonialSection = () => {
           More than 250 five-star reviews on Google
         </motion.p>
 
-        {/* Grid with scroll tracking */}
         <div ref={containerRef} className="grid md:grid-cols-3 gap-8 items-stretch">
           {testimonials.map((item, idx) => {
             const isMiddleColumn = idx % 3 === 1;
@@ -144,7 +159,7 @@ const TestimonialSection = () => {
                 viewport={{ once: true }}
                 variants={cardVariants}
                 className="bg-[#f9f6f4] rounded-[20px] flex flex-col items-center px-6 py-8 text-center min-h-[400px] justify-between"
-                style={isMiddleColumn ? { y: ySpring } : {}}
+                style={isMiddleColumn && isDesktop ? { y: ySpring } : {}}
               >
                 <div className="flex flex-col items-center">
                   <div className="text-[#783766] text-xl mb-4">
@@ -180,7 +195,7 @@ const TestimonialSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-32"
+          className="md:mt-32 mt-10"
         >
           <Button
             text="View More Reviews"

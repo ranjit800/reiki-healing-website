@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import sessionImg from "../../public/images/reikiImg/bookingImg.png";
 import Button from "../CommonComponent/Button";
-import Bg from "../../public/images/sectionBg2.png"
+import Bg from "../../public/images/sectionBg02.png"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
